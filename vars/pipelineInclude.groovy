@@ -1,9 +1,7 @@
 def call(body) {
-    stages {
-      stage('Run') {
-        steps {
-          echo "Hello!"
+    script{
+          withCredentials([file(credentialsId: "wif-config-file", variable: 'GC_KEY')]) {
+            sh 'echo $GC_KEY'
+	        }
         }
-      }
-    }
   }
